@@ -1,0 +1,51 @@
+﻿@page "/counter"
+@using Abstractions.Models
+@using Abstractions
+@using Stl.Fusion.Blazor
+@using Stl.Fusion.Extensions
+@inject IFusionTime _time
+@inject IUserService _userService
+@inherits Stl.Fusion.Blazor.ComputedStateComponent<UserData[]>
+
+@{
+    var users = State.ValueOrDefault ?? Array.Empty<UserData>();
+    var error = State.Error;
+}
+
+<PageTitle>Counter</PageTitle>
+
+@if (error != null) {
+    <div class="alert alert-warning" role="alert">Update error: @error.Message</div>
+    <pre>
+        @error.StackTrace
+    </pre>
+
+}
+ 
+<ul>
+@foreach (var user in users)
+{
+    <li>
+    @user.Name
+    </li>
+}
+</ul>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+    private DateTime LastStateUpdateTime { get; set; } = DateTime.UtcNow;
+
+    protected override async Task<UserData[]> ComputeState(CancellationToken cancellationToken)
+    {
+        var items = await _userService.List(cancellationToken);
+        
+        LastStateUpdateTime = DateTime.UtcNow;
+        return items;
+    }
+
+}

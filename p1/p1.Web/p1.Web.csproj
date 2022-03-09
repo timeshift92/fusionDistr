@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.2" PrivateAssets="all" />
+    <PackageReference Include="Serilog.Sinks.BrowserConsole" Version="1.0.0" />
+    <PackageReference Include="Stl.Fusion.Blazor" Version="2.3.23" />
+    <PackageReference Include="Stl.Fusion.Client" Version="2.3.23" />
+    <PackageReference Include="UAParser" Version="3.1.47" />
+    <PackageReference Include="Blazor.Extensions.Logging" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Abstactions\Abstractions.csproj" />
+    <ProjectReference Include="..\..\Services\Services.csproj" />
+  </ItemGroup>
+
+</Project>

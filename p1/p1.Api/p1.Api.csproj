@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Stl.Fusion" Version="2.3.23" />
+    <PackageReference Include="Stl.Fusion.EntityFramework" Version="2.3.23" />
+    <PackageReference Include="Stl.Fusion.Server" Version="2.3.23" />
+    <PackageReference Include="Stl.Fusion.Client" Version="2.3.23" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Abstactions\Abstractions.csproj" />
+    <ProjectReference Include="..\..\Services\Services.csproj" />
+    <ProjectReference Include="..\p1.Web\p1.Web.csproj" />
+  </ItemGroup>
+
+</Project>
